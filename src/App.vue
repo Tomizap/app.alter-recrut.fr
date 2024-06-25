@@ -1,47 +1,14 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <PageLoader v-if="$store.state.pageLoader === true"></PageLoader>
+  <router-view v-else></router-view>
+  
+  <button v-if="$store.state.notification.message !== ''" @click="$store.state.notification.message = ''" 
+    style="position: fixed; bottom: 50px; right: 50px; z-index:99999" class="btn bg-white border rounded py-2 px-3" >
+    <div class="d-flex gap-3">
+        <div :class="`sb-nav-link-icon text-${$store.state.notification.ok ? 'success' : 'danger'}`">
+          <i :class="$store.state.notification.ok === true ? 'fa-regular fa-circle-check' : 'fa-regular fa-circle-xmark'"></i>
+        </div>
+        {{ $store.state.notification.message }}
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </button>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>

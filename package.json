@@ -1,38 +1,29 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "vue-app",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "test:unit": "vitest",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "aws-amplify": "^6.3.8",
-    "vue": "^3.4.29"
+    "@googlemaps/js-api-loader": "^1.16.6",
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "vue": "^3.4.21",
+    "vue-cookies": "^1.8.3",
+    "vue-router": "^4.3.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^1.0.3",
-    "@aws-amplify/backend-cli": "^1.0.4",
-    "@rushstack/eslint-patch": "^1.8.0",
-    "@vitejs/plugin-vue": "^5.0.5",
-    "@vue/eslint-config-prettier": "^9.0.0",
-    "@vue/test-utils": "^2.4.6",
-    "aws-cdk": "^2.147.1",
-    "aws-cdk-lib": "^2.147.1",
-    "constructs": "^10.3.0",
-    "esbuild": "^0.21.5",
-    "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.23.0",
-    "jsdom": "^24.1.0",
-    "prettier": "^3.2.5",
-    "tsx": "^4.15.7",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.1",
-    "vitest": "^1.6.0"
-  }
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.0"
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
