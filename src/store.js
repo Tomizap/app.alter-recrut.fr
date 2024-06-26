@@ -22,48 +22,60 @@ var state = {
     sendEmail: {
       to: "",
       html: ''
-    }
+    },
   },
   item: {
     data: null,
     async reload() { }
+  },
+  newItem: {
+    name: '',
+    data: null,
+    colletion: null,
+    reset() {
+      this.data = null
+    },
+    push(data) {
+      this.data = data
+    },
+    // save() { },
   },
   sideItem: {
     data: null,
     async reload() { }
   },
   items: {
-    data: [],
-    getData() { return [] },
+    data: null,
+    // getData() { return [] },
     showFilters: false,
     selector: {},
     view: 'fields',
-    item: null,
+    // item: null,
   },
-  subItems: {
-    data: {},
-    reload() { }
-  },
+  // subItems: {
+  //   data: {},
+  //   reload() { }
+  // },
   pipelines,
   collections,
-  windows: {
-    add(window) {
-      window.id = "window-" + Math.round((1 + (Math.random() * 10)) ^ 999999999999999)
-      if (!window.position) window.position = 'sidebar'
-      if (!window.item) window.position = 'sidebar'
-      if (!window.emailConfig) window.position = 'sidebar'
-      if (!window.config) window.position = 'sidebar'
-      this.list.push(window)
-      console.log(this.list);
-    },
-    delete(windowId) {
-      const windowIndex = this.list.findIndex(window => window.id === windowId)
-      console.log(windowIndex);
-      this.list.splice(windowIndex, 1)
-      console.log(this.list);
-    },
-    list: []
-  }
+  // windows: {
+  //   add(window) {
+  //     window.id = "window-" + Math.round((1 + (Math.random() * 10)) ^ 999999999999999)
+  //     if (!window.position) window.position = 'sidebar'
+  //     if (!window.item) window.position = 'sidebar'
+  //     if (!window.emailConfig) window.position = 'sidebar'
+  //     if (!window.config) window.position = 'sidebar'
+  //     this.list.push(window)
+  //     console.log(this.list);
+  //   },
+  //   delete(windowId) {
+  //     const windowIndex = this.list.findIndex(window => window.id === windowId)
+  //     console.log(windowIndex);
+  //     this.list.splice(windowIndex, 1)
+  //     console.log(this.list);
+  //   },
+  //   list: []
+  // }
 }
 
 const store = createStore({

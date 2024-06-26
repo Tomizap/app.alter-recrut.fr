@@ -55,6 +55,32 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="newItemModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="newItemModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="newItemModalLabel">modal</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex flex-column gap-2">
+                            <AddNewItem :collection="$route.params.collection" @response="async function hundleAddNewItem(data) {
+                                console.log('hundleAddNewItem', data);
+                            }"></AddNewItem>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn icon" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="(ev) => {
+                            // $api.post('/google/gmail/send', $store.state.modals.sendEmail).then(r => {
+                            //     $store.dispatch('notify', r)
+                            // });
+                        }">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <PageLoader v-else></PageLoader>
 </template>

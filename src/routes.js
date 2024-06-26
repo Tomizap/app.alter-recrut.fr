@@ -5,9 +5,9 @@ import Register from './views/Register.vue'
 import Password from './views/Password.vue'
 
 // pages
-import Home from './pages/Home.vue'
-import Profil from './pages/Profil.vue'
-import Setting from './pages/Setting.vue'
+// import Home from './pages/Home.vue'
+// import Profil from './pages/Profil.vue'
+// import Setting from './pages/Setting.vue'
 
 // features
 // import Company from './features/Company.vue'
@@ -30,38 +30,59 @@ const routes = [
             {
                 path: '',
                 name: 'Home',
-                component: Home,
+                component: () => import('./pages/Home.vue'),
             },
             // Profil
             {
                 path: 'profil',
                 name: 'Profil',
-                component: Profil,
+                component: () => import('./pages/Profil.vue'),
             },
             // Setting
             {
                 path: 'setting',
                 name: 'Setting',
-                component: Setting,
+                component: () => import('./pages/Setting.vue'),
             },
             // Custom ...
             {
-                path: ':collection',
-                component: ListItems,
-                children: [
-                    {
-                        path: ":id/jobs/:subitemid",
-                        component: SideItem,
-                    },
-                    {
-                        path: ":id/recruiters/:subitemid",
-                        component: SideItem,
-                    },
-                    {
-                        path: ":id",
-                        component: SideItem,
-                    },
-                ]
+                path: 'companies',
+                name: 'Companies',
+                component: () => import('./pages/Companies.vue'),
+                meta: {
+                    config: '/companies'
+                }
+            },
+            {
+                path: 'companies/:id',
+                name: 'Company',
+                component: () => import('./pages/Company.vue'),
+            },
+            {
+                path: 'recruiters',
+                name: 'Recruiters',
+                component: () => import('./pages/Recruiters.vue'),
+                meta: {
+                    config: '/recruiters'
+                }
+            },
+            {
+                path: 'recruiters/:id',
+                name: 'Recruiter',
+                component: () => import('./pages/Recruiter.vue')
+            },
+            {
+                path: 'jobs',
+                name: 'Jobs',
+                component: () => import('./pages/Jobs.vue'),
+                meta: {
+                    config: '/jobs'
+                }
+            },
+            {
+                path: 'jobs/:id',
+                name: 'Job',
+                component: () => import('./pages/Job.vue')
             },
         ]
     }

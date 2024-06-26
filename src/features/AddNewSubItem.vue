@@ -16,12 +16,28 @@
             </Field>
 
         </div>
-        <div v-else-if="collection === 'jobs'">
+        <div v-else-if="collection === 'jobs'" class="d-flex flex-column gap-2">
             <Field :field="{ name: 'name', type: 'string' }" @change="ev => { newItem.name = ev.target.value }">
             </Field>
-            <Field :field="{ name: 'phone', type: 'phone' }" @change="ev => { newItem.phone = ev.target.value }">
+            <h3>Criterias</h3>
+            <Field :field="{ name: 'min-age', type: 'string' }"
+                @change="ev => { newItem.criterias.ageMin = ev.target.value }">
             </Field>
-            <Field :field="{ name: 'email', type: 'email' }" @change="ev => { newItem.email = ev.target.value }">
+            <Field :field="{ name: 'Max age', type: 'string' }"
+                @change="ev => { newItem.criterias.ageMax = ev.target.value }">
+            </Field>
+            <Field :field="{ name: 'Gender', type: 'string' }"
+                @change="ev => { newItem.criterias.gender = ev.target.value }">
+            </Field>
+            <Field :field="{ name: 'Driver License ?', type: 'boolean' }"
+                @change="ev => { newItem.criterias.driverLicense = ev.target.value }">
+            </Field>
+            <Field :field="{ name: 'Online ?', type: 'boolean' }"
+                @change="ev => { newItem.criterias.online = ev.target.value }">
+            </Field>
+            <h3>Comment</h3>
+            <Field :field="{ name: 'Message', type: 'textarea' }"
+                @change="ev => { newItem.criterias.ageMin = ev.target.value }">
             </Field>
         </div>
         <Submit :class="'w-100 mt-2 ' + (newItemIsValid === true ? '' : 'disabled ')" text="Create" :config="{

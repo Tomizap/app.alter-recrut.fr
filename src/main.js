@@ -21,6 +21,7 @@ import Content from './parts/Content.vue'
 
 // parts
 import AddNewSubItem from './features/AddNewSubItem.vue'
+import AddNewItem from './features/AddNewItem.vue'
 import Coordonees from './features/Coordonees.vue'
 import SubItemsList from './features/SubItemsList.vue'
 
@@ -65,6 +66,7 @@ app.component('Content', Content)
 app.component('Sidebar', Sidebar)
 
 // Features
+app.component('AddNewItem', AddNewItem)
 app.component('AddNewSubItem', AddNewSubItem)
 app.component('Coordonees', Coordonees)
 app.component('SubItemsList', SubItemsList)
